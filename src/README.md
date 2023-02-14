@@ -11,5 +11,9 @@ npm install @reduxjs/toolkit react-redux => para instalacion paquetes.
 
 # Creacion de usuario (con email y password) con Autenticacion de credenciales firebase.
 
-# Cambio en RegisterPage, linea 45 y 52 Alerta d form valido e ivalido v.283
 
+
+errorMessage = error Null.
+!! errorMessage = transforma a valor booleano.
+
+disparar accion asincrona en el thunks y si sale mal necesito el mensaje de error.
