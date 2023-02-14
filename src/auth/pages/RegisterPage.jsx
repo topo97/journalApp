@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { Link as RouterLink } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from '../../hooks';
+
+import { startCreatingUserWithEmailPassword } from '../../store/auth/thunks';
 
 
 
@@ -21,6 +24,7 @@ const formValidations = {
 
 export const RegisterPage = () => {
 
+    const dispatch = useDispatch();
     const [formSubmitted, setFormSubmitted ] = useState(false);
 
 
@@ -37,12 +41,15 @@ export const RegisterPage = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         setFormSubmitted(true);
-        console.log(formState);
+    
+        // if ( !isFormValid) return;
+
+        dispatch( startCreatingUserWithEmailPassword( formState) )
     }
 
     return (
         <AuthLayout title="Crear cuenta">
-            <h1>FormValid: { isFormValid ? 'Válido' : 'Incorrecto'  } </h1>
+            {/* <h1>FormValid: { isFormValid ? 'Válido' : 'Incorrecto'  } </h1> */}
             <form onSubmit={ onSubmit }>
                 <Grid container>
 
