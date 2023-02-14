@@ -11,5 +11,5 @@ npm install @reduxjs/toolkit react-redux => para instalacion paquetes.
 
 # Creacion de usuario (con email y password) con Autenticacion de credenciales firebase.
 
-# RegisterPage => Alerta d form valido e ivalido v.283
+# Cambio en RegisterPage, linea 45 y 52 Alerta d form valido e ivalido v.283
 
