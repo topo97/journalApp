@@ -1,8 +1,8 @@
-import { singInwithGoogle } from '../../firebase/providers';
-import { checkingCredentials } from './authSlice';
+import { singInWithGoogle } from '../../firebase/providers';
+import { checkingCredentials, login, logout } from './authSlice';
 
 
-// MI TAREA ASINCRONA:
+// MI TAREA  ASINCRONA:
 export const checkingAuthentication = ( email, password ) => {
     
     return async( dispatch ) => {
@@ -19,8 +19,11 @@ export const startGoogleSignIn = () => {
 
         dispatch( checkingCredentials() );
 
-        const result = singInwithGoogle();
-    
+        const result = await singInWithGoogle();
+        console.log({result});
+        if ( !result.ok ) return dispatch( logout( result.errorMessage ) );
+
+        dispatch( login( result ))
     }
 
 }

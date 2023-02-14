@@ -7,19 +7,30 @@ import { FirebaseAuth } from './config';
 const googleProvider = new GoogleAuthProvider(); // new: al ser una instancia de mi funcion.
 
 // autenticado:
-export const singInwithGoogle = async() => {
+export const singInWithGoogle = async() => {
 
     try {
         
         const result = await signInWithPopup( FirebaseAuth, googleProvider );
         // const credential = GoogleAuthProvider.credentialFromResult( result );
-        const user = result.user;
-        console.log({ user });
+        const { displayName, email, photoURL, uid } = result.user;
+        
+        return {
+            ok: true,
+            // info usuario
+            displayName, email, photoURL, uid
+        }
 
 
     } catch (error) {
-        
-        console.log(error);
+
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        return {
+            ok: false,
+            errorMessage,
+        }
         
     }
 };
