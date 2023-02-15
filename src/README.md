@@ -16,4 +16,3 @@ npm install @reduxjs/toolkit react-redux => para instalacion paquetes.
 errorMessage = error Null.
 !! errorMessage = transforma a valor booleano.
 
-disparar accion asincrona en el thunks y si sale mal necesito el mensaje de error.
