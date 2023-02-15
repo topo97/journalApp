@@ -52,7 +52,7 @@ export const LoginPage = () => {
                                 <TextField 
                                     label="Correo" 
                                     type="email" 
-                                    placeholder='correo@google.com' 
+                                    // placeholder='correo@google.com' 
                                     fullWidth  
                                     name="email"
                                     value={ email }
@@ -64,7 +64,7 @@ export const LoginPage = () => {
                                 <TextField 
                                     label="Contraseña" 
                                     type="password" 
-                                    placeholder='Contraseña' 
+                                    // placeholder='Contraseña' 
                                     fullWidth
                                     name="password"
                                     value={ password }

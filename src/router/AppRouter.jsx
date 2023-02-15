@@ -1,26 +1,40 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AuthRoutes } from '../auth/routes/AuthRoutes';
+
 import { JournalRoutes } from '../journal/routes/JournalRoutes';
+import { CheckingAuth } from '../ui';
+import { useCheckAuth } from '../hooks';
+
 
 export const AppRouter = () => {
+    
+    const status = useCheckAuth();
+
+    if ( status === 'checking' ) {
+        return <CheckingAuth />
+    }
+
+
+
     return (
         <Routes>
-            
-            {/* Login y registro */}
-            <Route path="/auth/*" element={ <AuthRoutes /> } />
-            
-            {/* JournalApp */}
-            <Route path="/*" element={ <JournalRoutes /> } />
+
+            {
+                (status === 'authenticated')
+                ? <Route path="/*" element={ <JournalRoutes /> } /> // estoy autenticado.
+                : <Route path="/auth/*" element={ <AuthRoutes /> } /> // no lo estoy.
+
+            }
+
+            <Route path='/*' element={ <Navigate to='/auth/login' /> } />
+                
+                {/* Login y registro */}
+                {/* <Route path="/auth/*" element={ <AuthRoutes /> } /> */}
+                
+                {/* JournalApp */}
+                {/* <Route path="/*" element={ <JournalRoutes /> } /> */}
 
         </Routes>
     )
 }
-// FONDO TOTAL: $28,700
-// alquiler => $16,839
-// wifi => $1,013
-
-/// gastos secundarios:
-// gymnasio => $ 3000
-// spotify=> $ 600
-
