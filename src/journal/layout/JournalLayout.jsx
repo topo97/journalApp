@@ -3,11 +3,11 @@ import { Box } from '@mui/system';
 import { Nabvar, SideBar } from '../components';
 
 //  Barra lateral:
-const drawerWidth = 250;
+const drawerWidth = 280;
 
 export const JournalLayout = ({ children }) => {
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex' }} className='animate__animated animate__fadeIn animate__faster' >
             
             <Nabvar  drawerWidth={ drawerWidth } />
             

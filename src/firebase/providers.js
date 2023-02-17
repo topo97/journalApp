@@ -38,7 +38,7 @@ export const singInWithGoogle = async() => {
 export const registerUserWithEmailPassword = async ({ email, password, displayName}) => {
 
     try {
-        console.log({email, password, displayName})
+        // console.log({email, password, displayName})
         
         const resp = await createUserWithEmailAndPassword( FirebaseAuth, email, password );
         const { uid, photoURL } = resp.user;
@@ -46,7 +46,7 @@ export const registerUserWithEmailPassword = async ({ email, password, displayNa
         // TODO: actualizar el dispalyName en Firebase
         await updateProfile( FirebaseAuth.currentUser, {
             displayName
-        } ); // user firebase.
+        } ); 
 
         return {
             ok: true,
@@ -57,7 +57,7 @@ export const registerUserWithEmailPassword = async ({ email, password, displayNa
         }
         
     } catch (error) {
-        // console.log(error)
+        
         return { ok: false, errorMessage: error.message }
         
     }

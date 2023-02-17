@@ -16,3 +16,6 @@ npm install @reduxjs/toolkit react-redux => para instalacion paquetes.
 errorMessage = error Null.
 !! errorMessage = transforma a valor booleano.
 
+Las animaciones estan creadas con Animate.css una biblioteca lista para usar en sitios web.
+
+# URL: https://animate.style/
